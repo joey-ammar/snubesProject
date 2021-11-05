@@ -1,0 +1,22 @@
+/*
+  *****
+  *****
+  Basic Reset
+*/
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+/*
+  *****
+  *****
+  Set the fonts to this in order to scale it to 10rem
+*/
+html {
+  font-size: 62.5%;
+}

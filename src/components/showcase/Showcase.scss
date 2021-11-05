@@ -1,0 +1,152 @@
+/*
+  *****
+  *****
+  Import Sass [mixins - colors ]
+*/
+@import "../../sass/mixins.scss";
+@import "../../sass/colors.scss";
+/*
+  *****
+  *****
+  ShowCase Component starts here
+*/
+.Showcase {
+  height: 60vh;
+  background-image: url("../../images/bg.png");
+  background-color: rgba(0, 0, 0, 0.4);
+  @include Background-Showcase;
+  font-family: "Open Sans", sans-serif;
+
+  /*
+  *****
+  *****
+  Inside
+*/
+  &__inside {
+    @include Navbar-Flex;
+    height: 60vh;
+    /*
+        *****
+         *****
+        Both
+    */
+    &--right {
+      width: 60%;
+    }
+    &--left {
+      width: 40%;
+    }
+    /*
+  *****
+  *****
+left Side
+    */
+    &--left {
+      &--box {
+        background-color: $color_box;
+        border: 1px solid $color_box;
+        color: $color_less_black;
+        border-radius: 0.2rem;
+        padding: 1rem 2rem;
+        h1,
+        p {
+          text-align: center;
+        }
+        h1 {
+          font-size: 1.5rem;
+          padding-bottom: 1rem;
+        }
+        p {
+          padding-bottom: 1.5rem;
+          font-size: 1.1rem;
+          margin-top: 0.3rem;
+        }
+        .paragraphAfterSubmission {
+          font-size: 1rem;
+        }
+        &--form {
+          display: flex;
+          flex-direction: row;
+          margin: 1.3rem 0rem;
+          label {
+            width: 20%;
+            font-weight: 300;
+            font-size: 1.3rem;
+            color: $color_less_black;
+          }
+          input {
+            display: block;
+            margin-left: 1rem;
+            width: 75%;
+            padding: 0.7rem 1rem;
+            border-radius: 0.3rem;
+            border: 1px solid $color_links;
+          }
+          div {
+            width: 75%;
+            display: block;
+            input {
+              width: 100%;
+            }
+            .EmailValidate,
+            .companyValidate {
+              small {
+                color: red;
+                display: block;
+                margin-left: 1rem;
+                margin-top: 0.5rem;
+                font-size: 1rem;
+              }
+            }
+          }
+
+          ::placeholder {
+            font-weight: 300;
+          }
+
+          &--submit {
+            width: 100%;
+            text-align: center;
+            button {
+              border-radius: 0.3rem;
+              margin: 1rem 0rem;
+              background-color: $color_logo;
+              color: $color_box;
+              padding: 1rem 2rem;
+              border: 1px solid $color_logo;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    /*
+  *****
+  *****
+    Right Side
+    */
+    &--right {
+      display: flex;
+      align-self: flex-end;
+      margin-bottom: 5rem;
+      padding-left: 2rem;
+      h1 {
+        color: $color_box;
+        font-size: 1.6rem;
+        font-weight: 500;
+      }
+      &--per {
+        display: flex;
+        width: 100%;
+        margin-top: 1rem;
+        &--single {
+          padding-right: 2rem;
+        }
+        small {
+          color: $color_box;
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+}

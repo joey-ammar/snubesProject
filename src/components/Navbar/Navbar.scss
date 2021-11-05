@@ -1,0 +1,203 @@
+/*
+  *****
+  *****
+  Import Sass [mixins - colors ]
+*/
+@import "../../sass/mixins.scss";
+@import "../../sass/colors.scss";
+/*
+  *****
+  *****
+  Navbar Component Styling
+*/
+.Navbar {
+  @include Navbar-Height;
+  font-family: "Open Sans", sans-serif;
+  /*Inside*/
+  &__inside {
+    height: 10vh;
+    @include Navbar-Flex;
+    /*Both left and right*/
+
+    /*Left*/
+    &--left {
+      width: 40%;
+      display: flex;
+      h1 {
+        display: none;
+      }
+      img {
+        width: 12rem;
+      }
+    }
+    /*Right*/
+    &--right {
+      width: 70%;
+      color: $color_links;
+      ul {
+        display: flex;
+        li {
+          margin-left: 2rem;
+          margin-top: 0.5rem;
+          font-weight: 500;
+          font-size: 1.2rem;
+        }
+        .fa-bars {
+          display: none;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+.Container {
+  @include Container;
+}
+
+/*
+  *****
+  *****
+  Media Queries for all devices 
+*/
+
+/* Small Screens*/
+/*Tested Mobiles : 
+    G9+ - G8 - Moto G4 - G5 - Pixel 2 - Pixel 2 XL
+    Iphone SE/5 - Iphone 6 7 8 - Iphone 678 plus
+    Iphone x - 
+*/
+@media screen and (max-width: 575px) {
+  .Navbar {
+    border-bottom: 1px solid #eee;
+    /*Inside*/
+    &__inside {
+      /*Left*/
+      &--left {
+        width: 30%;
+        h1 {
+          display: block;
+          color: $color_logo;
+          font-size: 3rem;
+        }
+        img {
+          display: none;
+        }
+      }
+      /*Right*/
+      &--right {
+        display: flex;
+        width: 70%;
+        justify-content: end;
+        ul {
+          .fa-bars {
+            display: block;
+            font-size: 2.7rem;
+          }
+        }
+        ul li:not(:last-child) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+/* Small Screens - Landscape Mode*/
+/*Tested Mobiles : 
+    G9+ - G8 - Moto G4 - G5 - Pixel 2 - 
+
+    ****
+    Pixel 2 XL [size more than expected]
+      Iphone x
+    ****
+
+
+    Iphone SE/5 - Iphone 6 7 8 - Iphone 678 plus
+  
+*/
+@media screen and (max-width: 767.98px) {
+  .Navbar {
+    height: 12vh;
+    &__inside {
+      height: 12vh;
+    }
+  }
+}
+
+/* Tablets Screens*/
+/*Tested Tablets : 
+    ipad - Ipad pro
+    The landscape for ipad works the same, the landscape for 
+    ipad pro will be considered as the same as Desktop version
+*/
+@media screen and (max-width: 1024.98px) {
+  .Navbar {
+    border-bottom: 1px solid #eee;
+    /*Inside*/
+    &__inside {
+      /*Left*/
+      &--left {
+        width: 30%;
+        h1 {
+          display: block;
+          color: $color_logo;
+          font-size: 4rem;
+        }
+        img {
+          display: none;
+        }
+      }
+      /*Right*/
+      &--right {
+        display: flex;
+        width: 70%;
+        justify-content: end;
+        ul {
+          .fa-bars {
+            display: block;
+            font-size: 3rem;
+          }
+        }
+        ul li:not(:last-child) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+/* Large Screens*/
+/*Tested Screen : 
+    starting from 1400px
+*/
+@media screen and (min-width: 1400px) {
+  .Navbar {
+    /*Inside*/
+    &__inside {
+      /*Left*/
+      &--left {
+        width: 30%;
+        display: flex;
+        h1 {
+          display: none;
+        }
+        img {
+          width: 17rem;
+        }
+      }
+      /*Right*/
+      &--right {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+
+        color: $color_links;
+        ul {
+          display: flex;
+          li {
+            font-size: 1.8rem;
+          }
+        }
+      }
+    }
+  }
+}
