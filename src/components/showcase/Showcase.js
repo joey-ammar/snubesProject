@@ -37,10 +37,11 @@ const Showacase = () => {
   //Hide Button
   const [btn, setBtn] = useState(true);
   /* Validation State */
-  const [emailValidate, setEmailValidate] = useState(false);
-  /* Validation State */
-  const [companyValidate, setCompanyValidate] = useState(false);
 
+  const [companyValidate, setCompanyValidate] = useState(false);
+  const [nameValidate, setNameValidate] = useState(false);
+  const [phoneValidation, setPhoneValidation] = useState(false);
+  const [emailValidate, setEmailValidate] = useState(false);
   // OnSubmit
   const onSubmit = (e) => {
     e.preventDefault();
@@ -53,17 +54,46 @@ const Showacase = () => {
 
   //OnClick
   const onClick = (e) => {
-    const reCompanyName = /^[a-zA-Z]{2,12}$/;
+    // Company
+    // SHould consist of two names such as snubes GmbH
+    const reCompanyName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    //Name
+    const reName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    // Email Address
     const reEmail =
       /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+    //Phone number
+    const rePhone = /\+?[0-9]+([0-9]|\/|\(|\)|\-| ){10,}/g;
+
     if (!reCompanyName.test(company)) {
       setCompanyValidate(true);
       return;
+    } else {
+      setCompanyValidate(false);
     }
+
+    if (!reName.test(name)) {
+      setNameValidate(true);
+      return;
+    } else {
+      setNameValidate(false);
+    }
+
+    if (!rePhone.test(phone)) {
+      setPhoneValidation(true);
+      return;
+    } else {
+      setPhoneValidation(false);
+    }
+
     if (!reEmail.test(email)) {
       setEmailValidate(true);
       return;
+    } else {
+      setEmailValidate(false);
     }
+
+    //upComing Phone
 
     if (company === "" || phone === "" || email === "" || name === "") {
       return;
@@ -91,6 +121,12 @@ const Showacase = () => {
         setSubMessage(!false);
         setLine(!true);
         setBtn(!false);
+
+        setCompanyValidate(false);
+        setNameValidate(false);
+        setPhoneValidation(false);
+
+        setEmailValidate(false);
       }, 5000);
     }
   };
@@ -113,7 +149,7 @@ const Showacase = () => {
                 )}
                 {/* the sub Message Message */}
                 {subMessage ? (
-                  <p>
+                  <p className="paragraphWilBeRemovedOnSmallScreen">
                     Use our AI and Big Data driven call center sourcing solution
                   </p>
                 ) : (
@@ -141,7 +177,9 @@ const Showacase = () => {
                         />
                         {companyValidate ? (
                           <div className="companyValidate">
-                            <small>Please Provide a valid Company Name</small>
+                            <small>
+                              Company name should be between 2 and 12 character
+                            </small>
                           </div>
                         ) : (
                           ""
@@ -155,15 +193,24 @@ const Showacase = () => {
                   <div className="Showcase__inside--left--box--form">
                     <label for="Name">Name </label>
                     {input ? (
-                      <input
-                        required
-                        onChange={(e) => setName(e.target.value)}
-                        value={name}
-                        type="text"
-                        id="Name"
-                        placeholder="Full name"
-                        name="Name"
-                      />
+                      <div>
+                        <input
+                          required
+                          onChange={(e) => setName(e.target.value)}
+                          value={name}
+                          type="text"
+                          id="Name"
+                          placeholder="Full name"
+                          name="Name"
+                        />
+                        {nameValidate ? (
+                          <div className="nameValidate">
+                            <small>Please Provide a valid Full Name</small>
+                          </div>
+                        ) : (
+                          ""
+                        )}
+                      </div>
                     ) : (
                       <p>{nameValue}</p>
                     )}
@@ -172,15 +219,24 @@ const Showacase = () => {
                   <div className="Showcase__inside--left--box--form">
                     <label for="Phone">Phone </label>
                     {input ? (
-                      <input
-                        required
-                        onChange={(e) => setPhone(e.target.value)}
-                        value={phone}
-                        type="text"
-                        id="Phone"
-                        placeholder="+49"
-                        name="phone"
-                      />
+                      <div>
+                        <input
+                          required
+                          onChange={(e) => setPhone(e.target.value)}
+                          value={phone}
+                          type="number"
+                          id="Phone"
+                          placeholder="+49"
+                          name="phone"
+                        />
+                        {phoneValidation ? (
+                          <div className="phoneValidation">
+                            <small>Please Provide a valid Phone Number</small>
+                          </div>
+                        ) : (
+                          ""
+                        )}
+                      </div>
                     ) : (
                       <p>{phoneValue}</p>
                     )}

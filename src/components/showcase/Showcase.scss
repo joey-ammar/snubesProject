@@ -89,7 +89,9 @@ left Side
               width: 100%;
             }
             .EmailValidate,
-            .companyValidate {
+            .companyValidate,
+            .phoneValidation,
+            .nameValidate {
               small {
                 color: red;
                 display: block;
@@ -145,6 +147,192 @@ left Side
         small {
           color: $color_box;
           font-size: 1.8rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .Showcase {
+    height: 100%;
+    background-image: none;
+    background-color: white;
+    .Container {
+      width: 100%;
+      margin: 0 auto;
+    }
+    &__inside {
+      display: block;
+      height: 100%;
+      width: 100%;
+      &--right,
+      &--left {
+        width: 100%;
+      }
+      &--left {
+        height: 100%;
+        &--box {
+          .paragraphWilBeRemovedOnSmallScreen {
+            display: none;
+          }
+          padding: 1rem;
+          h1,
+          p {
+            text-align: center;
+          }
+          h1 {
+            font-size: 1.5rem;
+            padding-bottom: 1rem;
+          }
+          p {
+            padding-bottom: 1.5rem;
+            font-size: 1.1rem;
+            margin-top: 0.3rem;
+            text-align: left;
+          }
+          .paragraphAfterSubmission {
+            font-size: 1rem;
+          }
+          &--form {
+            display: block;
+            margin: 0rem 0rem;
+            label {
+              width: 100%;
+              display: block;
+              margin: 0.1rem 0rem;
+            }
+            input {
+              display: block;
+              margin-left: 0rem;
+              width: 100%;
+              padding: 1rem 1rem;
+            }
+            div {
+              width: 100%;
+              display: block;
+              input {
+                width: 100%;
+              }
+            }
+            &--submit {
+              width: 100%;
+              button {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+
+      &--right {
+        height: 100%;
+        padding: 3rem;
+        @include flex-center;
+        background-color: rgba($color: #000000, $alpha: 0.5);
+        margin-bottom: 0rem;
+        padding-left: 0rem;
+        h1 {
+          text-align: center;
+          font-size: 1.2rem;
+        }
+        &--per {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 575px) and (max-width: 1024px) {
+  .Showcase {
+    height: 100%;
+    background-image: none;
+    background-color: white;
+    .Container {
+      width: 100%;
+      margin: 0 auto;
+    }
+    &__inside {
+      display: block;
+      height: 100%;
+      width: 100%;
+      &--right,
+      &--left {
+        width: 100%;
+      }
+      &--left {
+        height: 100%;
+        &--box {
+          .paragraphWilBeRemovedOnSmallScreen {
+            display: none;
+          }
+          padding: 1rem;
+          h1,
+          p {
+            text-align: center;
+          }
+          h1 {
+            font-size: 1.5rem;
+            padding-bottom: 1rem;
+          }
+          p {
+            padding-bottom: 1.5rem;
+            font-size: 1.1rem;
+            margin-top: 0.3rem;
+            text-align: left;
+          }
+          .paragraphAfterSubmission {
+            font-size: 1rem;
+          }
+          &--form {
+            display: block;
+            margin: 0rem 0rem;
+            label {
+              width: 100%;
+              display: block;
+              margin: 0.1rem 0rem;
+            }
+            input {
+              display: block;
+              margin-left: 0rem;
+              width: 100%;
+              padding: 1rem 1rem;
+            }
+            div {
+              width: 100%;
+              display: block;
+              input {
+                width: 100%;
+              }
+            }
+            &--submit {
+              width: 100%;
+              button {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+
+      &--right {
+        background-image: url("../../images/bg.png");
+        background-color: rgba(0, 0, 0, 0.3);
+        background-blend-mode: multiply;
+        background-position: center;
+        background-size: cover;
+        height: 100%;
+        padding: 3rem;
+        @include flex-center;
+        margin-bottom: 0rem;
+        padding-left: 0rem;
+        h1 {
+          text-align: center;
+          font-size: 1.2rem;
+        }
+        &--per {
+          display: flex;
         }
       }
     }
