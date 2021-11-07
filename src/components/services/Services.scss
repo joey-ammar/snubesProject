@@ -1,0 +1,120 @@
+/*
+    ****
+    ****
+Imports
+*/
+@import "../../sass/mixins.scss";
+@import "../../sass/colors.scss";
+/*
+    ****
+    ****
+    Services start here
+*/
+.Services {
+  font-family: "Open Sans", sans-serif;
+  height: 50vh;
+  width: 100%;
+  &__inside {
+    @include ipad;
+
+    height: 50vh;
+    &--middle {
+      margin-left: 1rem;
+      padding: 2rem;
+      img {
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        margin-top: 1rem;
+        font-size: 1.5rem;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+/*
+  *****
+  *****
+  Media Queries for all devices 
+*/
+
+/* Small Screens*/
+/*Tested Mobiles : 
+    G9+ - G8 - Moto G4 - G5 - Pixel 2 - Pixel 2 XL
+    Iphone SE/5 - Iphone 6 7 8 - Iphone 678 plus
+    Iphone x - 
+*/
+@media screen and (max-width: 575px) {
+  .Services {
+    height: 100%;
+    width: 100%;
+    &__inside {
+      display: block;
+      height: 100%;
+      &--middle {
+        margin-left: 0rem;
+        padding: 2rem;
+      }
+    }
+  }
+}
+/* Small Screens - Landscape Mode*/
+/*Tested Mobiles : 
+      G9+ - G8 - Moto G4 - G5 - Pixel 2 - 
+  
+      ****
+      Pixel 2 XL [size more than expected]
+        Iphone x
+      ****
+  
+  
+      Iphone SE/5 - Iphone 6 7 8 - Iphone 678 plus
+    
+  */
+@media screen and (max-width: 767.98px) {
+  .Services {
+    height: 100%;
+    width: 100%;
+    &__inside {
+      display: block;
+      height: 100%;
+      &--middle {
+        margin-left: 0rem;
+        padding: 2rem;
+      }
+    }
+  }
+}
+
+/* Tablets Screens*/
+/*Tested Tablets : 
+      ipad - Ipad pro
+      The landscape for ipad works the same, the landscape for 
+      ipad pro will be considered as the same as Desktop version
+  */
+@media screen and (max-width: 1024.98px) {
+  .Services {
+    height: 100%;
+    width: 100%;
+    &__inside {
+      display: block;
+      height: 100%;
+      &--middle {
+        margin-left: 0rem;
+        padding: 3rem;
+      }
+    }
+  }
+}
+
+/* Large Screens*/
+/*Tested Screen : 
+      starting from 1400px
+  */
+@media screen and (min-width: 1400px) {
+}

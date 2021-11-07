@@ -1,0 +1,90 @@
+/*
+    ****
+    ****
+Imports
+*/
+@import "../../sass/mixins.scss";
+@import "../../sass/colors.scss";
+/*
+    ****
+    ****
+    ABout start here
+*/
+.About {
+  font-family: "Open Sans", sans-serif;
+  height: 60vh;
+  background-image: url("../../images/cbng.png");
+  @include Background-Showcase;
+  &__inside {
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    justify-content: center;
+    align-items: center;
+    &--middle {
+      width: 60%;
+      h1 {
+        color: $color_less_black;
+        margin: 2rem 0rem;
+        color: 2rem;
+      }
+      h3 {
+        color: $color_less_black;
+        font-size: 1.5rem;
+      }
+
+      p {
+        margin-bottom: 2rem;
+        color: $color_links;
+        line-height: 2rem;
+      }
+    }
+  }
+}
+
+/*
+  *****
+  *****
+  Media Queries for all devices 
+*/
+
+/* Small Screens*/
+/*Tested Mobiles : 
+    G9+ - G8 - Moto G4 - G5 - Pixel 2 - Pixel 2 XL
+    Iphone SE/5 - Iphone 6 7 8 - Iphone 678 plus
+    Iphone x - 
+*/
+@media screen and (max-width: 575px),
+  screen and (max-width: 900px),
+  screen and (max-width: 1024.98px) {
+  .About {
+    height: 100%;
+    background-image: url("../../images/cbng.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 1px solid $color_border;
+    &__inside {
+      height: 100%;
+
+      &--middle {
+        width: 100%;
+        h1 {
+          color: $color_less_black;
+          margin: 2rem 0rem;
+          color: 2rem;
+        }
+        h3 {
+          color: $color_less_black;
+          font-size: 1.5rem;
+        }
+
+        p {
+          margin-bottom: 2rem;
+          color: $color_links;
+          line-height: 2rem;
+        }
+      }
+    }
+  }
+}

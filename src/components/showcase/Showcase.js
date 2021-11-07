@@ -55,10 +55,9 @@ const Showacase = () => {
   //OnClick
   const onClick = (e) => {
     // Company
-    // SHould consist of two names such as snubes GmbH
-    const reCompanyName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    const reCompanyName = /^[a-zA-Z](?:[^0-9\s\x00-\x1F]|[ \t]){1,79}$/;
     //Name
-    const reName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    const reName = /[A-Za-z]{1,50}/;
     // Email Address
     const reEmail =
       /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
@@ -177,9 +176,7 @@ const Showacase = () => {
                         />
                         {companyValidate ? (
                           <div className="companyValidate">
-                            <small>
-                              Company name should be between 2 and 12 character
-                            </small>
+                            <small>Please provide a valid company name</small>
                           </div>
                         ) : (
                           ""
