@@ -1,10 +1,15 @@
 import { React, useState, useEffect } from "react";
+
 /*
   *****
   *****
   Import Showcase.scss - 
 */
 import "./Showcase.scss";
+/* Importing The ENV */
+require("dotenv").config();
+console.log(process.env);
+
 const Showacase = () => {
   /*
   *****
@@ -37,6 +42,7 @@ const Showacase = () => {
   //Hide Button
   const [btn, setBtn] = useState(true);
   /* Validation State */
+  const [countryCode, setCountryCode] = useState();
 
   const [companyValidate, setCompanyValidate] = useState(false);
   const [nameValidate, setNameValidate] = useState(false);
@@ -46,6 +52,15 @@ const Showacase = () => {
   const onSubmit = (e) => {
     e.preventDefault();
   };
+  // Grabing the country using fetch API
+  //Tested using VPN and it worked
+  useEffect(() => {
+    fetch(
+      `https://api.ipgeolocation.io/ipgeo?apiKey=${process.env.REACT_APP_KEY}`
+    )
+      .then((response) => response.json())
+      .then((data) => setCountryCode(data)); //MY CASE GERMANY
+  }, []);
 
   //onChange Company
   const onChangeCompany = (e) => {
@@ -91,7 +106,6 @@ const Showacase = () => {
     } else {
       setEmailValidate(false);
     }
-
     //upComing Phone
 
     if (company === "" || phone === "" || email === "" || name === "") {
@@ -223,7 +237,9 @@ const Showacase = () => {
                           value={phone}
                           type="number"
                           id="Phone"
-                          placeholder="+49"
+                          placeholder={
+                            countryCode ? countryCode.calling_code : ""
+                          }
                           name="phone"
                         />
                         {phoneValidation ? (
