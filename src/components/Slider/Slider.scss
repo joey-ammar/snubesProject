@@ -1,0 +1,31 @@
+/*
+  *****
+  *****
+  Import Sass [mixins - colors ]
+*/
+@import "../../sass/mixins.scss";
+@import "../../sass/colors.scss";
+
+/*Styles for slider*/
+.Slider {
+  font-family: "Open Sans", sans-serif;
+  height: 100%;
+  width: 100%;
+  padding: 3rem;
+  &__inside {
+    @include flex-center;
+    text-align: center;
+    img {
+      width: 9rem;
+    }
+    p {
+      font-size: 1.3rem;
+      margin-top: 2rem;
+    }
+    small {
+      font-size: 1.3rem;
+      margin-top: 2rem;
+      display: block;
+    }
+  }
+}

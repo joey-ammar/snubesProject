@@ -1,0 +1,98 @@
+/*
+  *****
+  *****
+  Import Sass [mixins - colors ]
+*/
+@import "../../sass/mixins.scss";
+@import "../../sass/colors.scss";
+
+/*Styles for Bottom*/
+.Bottom {
+  font-family: "Open Sans", sans-serif;
+  height: 100%;
+  width: 100%;
+  background-color: $color_less_black;
+  padding: 5rem;
+  color: $color_box;
+  &__inside {
+    @include footer;
+    h1 {
+      font-size: 1.3rem;
+    }
+    p {
+      font-weight: 300;
+      margin: 0.5rem 0rem;
+    }
+    i {
+      font-size: 1.2rem;
+      margin-right: 1rem;
+    }
+  }
+}
+
+/*
+  *****
+  *****
+  Media Queries for all devices 
+*/
+
+/* Small Screens*/
+/*Tested Mobiles : 
+    G9+ - G8 - Moto G4 - G5 - Pixel 2 - Pixel 2 XL
+    Iphone SE/5 - Iphone 6 7 8 - Iphone 678 plus
+    Iphone x - 
+*/
+@media screen and (max-width: 575px) {
+  .Bottom {
+    padding: 5rem;
+    color: $color_box;
+    &__inside {
+      display: block;
+    }
+  }
+}
+/* Small Screens - Landscape Mode*/
+/*Tested Mobiles : 
+        G9+ - G8 - Moto G4 - G5 - Pixel 2 - 
+    
+        ****
+        Pixel 2 XL [size more than expected]
+          Iphone x
+        ****
+    
+    
+        Iphone SE/5 - Iphone 6 7 8 - Iphone 678 plus
+      
+    */
+@media screen and (max-width: 767.98px) {
+  .Bottom {
+    padding: 5rem;
+    color: $color_box;
+    &__inside {
+      display: block;
+    }
+  }
+}
+
+/* Tablets Screens*/
+/*Tested Tablets : 
+        ipad - Ipad pro
+        The landscape for ipad works the same, the landscape for 
+        ipad pro will be considered as the same as Desktop version
+    */
+@media screen and (max-width: 1024.98px) {
+  .Bottom {
+    padding: 5rem;
+    color: $color_box;
+    &__inside {
+      display: block;
+    }
+  }
+}
+
+/* Large Screens*/
+/*Tested Screen : 
+        starting from 1400px
+    */
+@media screen and (min-width: 1400px) {
+}

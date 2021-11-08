@@ -20,16 +20,16 @@ const Showacase = () => {
   //State Management
 
   //Company State
-  const [company, setCompany] = useState();
+  const [company, setCompany] = useState("");
   const [companyValue, setCompanyValue] = useState();
   //name State
-  const [name, setName] = useState();
+  const [name, setName] = useState("");
   const [nameValue, setNameValue] = useState();
   //Phone State
-  const [phone, setPhone] = useState();
+  const [phone, setPhone] = useState("");
   const [phoneValue, setPhoneValue] = useState();
   //Email State
-  const [email, setEmail] = useState();
+  const [email, setEmail] = useState("");
   const [emailValue, setEmailValue] = useState();
   //Hide Inputs
   const [input, setInput] = useState(true);
@@ -79,36 +79,19 @@ const Showacase = () => {
     //Phone number
     const rePhone = /\+?[0-9]+([0-9]|\/|\(|\)|\-| ){10,}/g;
 
-    if (!reCompanyName.test(company)) {
+    if (company === "" || phone === "" || email === "" || name === "") {
+      return;
+    } else if (!reCompanyName.test(company)) {
       setCompanyValidate(true);
       return;
-    } else {
-      setCompanyValidate(false);
-    }
-
-    if (!reName.test(name)) {
+    } else if (!reName.test(name)) {
       setNameValidate(true);
       return;
-    } else {
-      setNameValidate(false);
-    }
-
-    if (!rePhone.test(phone)) {
+    } else if (!rePhone.test(phone)) {
       setPhoneValidation(true);
       return;
-    } else {
-      setPhoneValidation(false);
-    }
-
-    if (!reEmail.test(email)) {
+    } else if (!reEmail.test(email)) {
       setEmailValidate(true);
-      return;
-    } else {
-      setEmailValidate(false);
-    }
-    //upComing Phone
-
-    if (company === "" || phone === "" || email === "" || name === "") {
       return;
     } else {
       /* setting the New Values */
@@ -127,6 +110,10 @@ const Showacase = () => {
       setSubMessage(false);
       setLine(true);
       setBtn(false);
+      setCompanyValidate(false);
+      setNameValidate(false);
+      setPhoneValidation(false);
+      setEmailValidate(false);
       /* Reset all options after submission after 5 seconds  */
       setTimeout(() => {
         setInput(!false);
@@ -134,11 +121,9 @@ const Showacase = () => {
         setSubMessage(!false);
         setLine(!true);
         setBtn(!false);
-
         setCompanyValidate(false);
         setNameValidate(false);
         setPhoneValidation(false);
-
         setEmailValidate(false);
       }, 5000);
     }
@@ -219,7 +204,9 @@ const Showacase = () => {
                             <small>Please Provide a valid Full Name</small>
                           </div>
                         ) : (
-                          ""
+                          <div className="nameValidate">
+                            <small></small>
+                          </div>
                         )}
                       </div>
                     ) : (
